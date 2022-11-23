@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "446635453972",
+    "project_id": "edujlgame",
+    "storage_bucket": "edujlgame.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:446635453972:android:15119acac16c9f8d2b4101",
+        "android_client_info": {
+          "package_name": "com.example.edujlgame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "446635453972-no8akdtjhs1dcbonbg9lrt5b7vnflaoq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5uNczObT9Dwuk9mEfXlttlsnzMqdxq5I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "446635453972-no8akdtjhs1dcbonbg9lrt5b7vnflaoq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
