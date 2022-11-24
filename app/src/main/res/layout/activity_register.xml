@@ -79,12 +79,14 @@
                 android:id="@+id/pAccountChoice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Parent Account"/>
+                android:text="Parent Account"
+                />
             <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/cAccountChoice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Child Account"/>
+                android:text="Child Account"
+                />
         </RadioGroup>
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/cAccount"

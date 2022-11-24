@@ -26,13 +26,14 @@ class LoginView : AppCompatActivity() {
             val pPassword = sharedPreferences.getString("pPassword", "NULL")
             val cUsername = sharedPreferences.getString("cUsername","NULL")
             val cPassword = sharedPreferences.getString("cPassword", "NULL")
-            if (binding.pAccountChoice.isSelected){
+            if (binding.pAccountChoice.isChecked){
                     if (pUsername == binding.username.text.toString() && pPassword == binding.password.text.toString()){
                         Toast.makeText(applicationContext, "Successfully Login", Toast.LENGTH_SHORT).show()
                         val intent = Intent(this,ParentView::class.java)
                         startActivity(intent)
                     }
-                }else if (binding.cAccountChoice.isSelected){
+                }
+            else if (binding.cAccountChoice.isChecked){
                     if (cUsername == binding.username.text.toString() && cPassword == binding.password.text.toString()){
                         Toast.makeText(applicationContext, "Successfully Login", Toast.LENGTH_SHORT).show()
                         val intent = Intent(this,ChildView::class.java)
