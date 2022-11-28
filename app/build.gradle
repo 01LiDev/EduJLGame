@@ -18,6 +18,11 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
 
     buildTypes {
         release {
@@ -36,7 +41,7 @@ android {
         viewBinding = true
     }
 }
-
+configurations { natives }
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.9.0'
@@ -49,4 +54,47 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.25'
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+    implementation "com.badlogicgames.gdx:gdx-backend-android:$gdxVersion"
+    natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-armeabi"
+    natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-armeabi-v7a"
+    natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-arm64-v8a"
+    natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-x86"
+    natives "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-x86_64"
+    implementation "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
+    natives "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-armeabi"
+    natives "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-armeabi-v7a"
+    natives "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-arm64-v8a"
+    natives "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-x86"
+    natives "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-x86_64"
+
+    implementation "com.badlogicgames.gdx:gdx:$gdxVersion"
+    implementation "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
+
+    implementation "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
+    implementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+    implementation "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
+}
+task copyAndroidNatives() {
+    file("libs/armeabi/").mkdirs()
+    file("libs/armeabi-v7a/").mkdirs()
+    file("libs/arm64-v8a/").mkdirs()
+    file("libs/x86/").mkdirs()
+    file("libs/x86_64/").mkdirs()
+
+    configurations.getByName("natives").copy().files.each { jar ->
+        def outputDir = null
+        if (jar.name.endsWith("natives-armeabi-v7a.jar")) outputDir = file("libs/armeabi-v7a")
+        if (jar.name.endsWith("natives-armeabi.jar")) outputDir = file("libs/armeabi")
+        if (jar.name.endsWith("natives-arm64-v8a.jar")) outputDir = file("libs/arm64-v8a")
+        if (jar.name.endsWith("natives-x86.jar")) outputDir = file("libs/x86")
+        if (jar.name.endsWith("natives-x86_64.jar")) outputDir = file("libs/x86_64")
+        if (outputDir != null) {
+            copy {
+                from zipTree(jar)
+                into outputDir
+                include "*.so"
+            }
+        }
+    }
 }

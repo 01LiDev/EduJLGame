@@ -111,15 +111,70 @@
         android:layout_height="0dp"
         android:layout_weight="10"
         android:background="@color/design_default_color_secondary">
+        <GridLayout
+            android:id="@+id/GridLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:columnCount="20"
+            android:orientation="horizontal"
+            android:rowCount="20"
+            tools:context=".GridXMLActivity"
+            >
+            <ImageButton
+                android:id="@+id/imageButton8"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:src="@drawable/bordor" />
+            <ImageButton
+                android:id="@+id/imageButton1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:src="@drawable/bordor" />
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:src="@drawable/bordor" />
+            <ImageButton
+                android:id="@+id/imageButton3"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:src="@drawable/bordor" />
+            <ImageButton
+                android:id="@+id/imageButton4"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
 
+                android:src="@drawable/bordor" />
+            <ImageButton
+                android:id="@+id/imageButton5"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:src="@drawable/bordor" />
+            <ImageButton
+                android:id="@+id/imageButton6"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:src="@drawable/bordor" />
+        </GridLayout>
 
 
     </LinearLayout>
 
-    <GridLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:rowCount="20"
-        android:columnCount="20"/>
+
 
 </androidx.appcompat.widget.LinearLayoutCompat>
