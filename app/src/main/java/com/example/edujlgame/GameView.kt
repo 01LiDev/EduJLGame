@@ -1,16 +1,26 @@
 package com.example.edujlgame
 
+import android.R.attr.x
+import android.R.attr.y
 import android.content.ClipData
 import android.content.ClipDescription
 import android.graphics.Canvas
 import android.graphics.Point
-import androidx.appcompat.app.AppCompatActivity
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.DragEvent
 import android.view.View
+import android.view.ViewTreeObserver.OnGlobalLayoutListener
 import android.widget.Button
 import android.widget.ImageView
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.marginLeft
+import androidx.core.view.marginTop
+import com.badlogic.gdx.utils.Timer.post
 import com.example.edujlgame.databinding.ActivityGameViewBinding
+
 
 class GameView : AppCompatActivity() {
     private lateinit var binding: ActivityGameViewBinding
@@ -29,7 +39,16 @@ class GameView : AppCompatActivity() {
         binding.downMoveBtn.setOnLongClickListener(onLongClickListener)
         binding.backMoveBtn.setOnLongClickListener(onLongClickListener)
         binding.forwardMoveBtn.setOnLongClickListener(onLongClickListener)
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Androidly Alert")
+        builder.setMessage("Help Georgie find his friend and get him out of the void of nothingness!")
+        builder.show()
+
+
+
     }
+
+
     private val onLongClickListener = View.OnLongClickListener { view: View ->
         (view as? Button)?.let {
 
